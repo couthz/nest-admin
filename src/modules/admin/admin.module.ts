@@ -1,3 +1,4 @@
+import { GoodsModule } from '@/modules/admin/goods/goods.module';
 import { Module } from '@nestjs/common';
 import { APP_GUARD, RouterModule } from '@nestjs/core';
 import { AccountModule } from './account/account.module';
@@ -20,6 +21,7 @@ import { SystemModule } from './system/system.module';
           { path: 'netdisk', module: NetdiskModule },
           { path: 'account', module: AccountModule },
           { path: 'sys', module: SystemModule },
+          { path: 'goods', module: GoodsModule },
         ],
       },
       // like this url /admin/captcha/img
@@ -33,6 +35,7 @@ import { SystemModule } from './system/system.module';
     SystemModule,
     AccountModule,
     NetdiskModule,
+    GoodsModule,
   ],
   providers: [
     {

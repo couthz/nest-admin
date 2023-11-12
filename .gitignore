@@ -42,6 +42,7 @@ docs/sample/mysql/
 
 # environment
 .env
+.env.development
 .env.production
 
 # Dev data
