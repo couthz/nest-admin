@@ -15,7 +15,7 @@ export default class GoodsStock extends BaseEntity {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column()
+  @Column({ length: 1000 })
   @ApiProperty()
   stock: string;
 
