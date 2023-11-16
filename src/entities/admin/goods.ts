@@ -57,11 +57,11 @@ export default class Goods extends BaseEntity {
     console.log('createDetails');
     this.details = `${this.goodsName}\n\n颜色:${this.color}\n\n尺码:\n${this.size}\n\n`;
 
-    if (this.fabric != null) {
+    if (this.fabric != null && this.fabric != '') {
       this.details += `面料:${this.fabric}\n\n`;
     }
 
-    if (this.other != null) {
+    if (this.other != null && this.other != '') {
       this.details += `${this.other}\n\n`;
     }
 
