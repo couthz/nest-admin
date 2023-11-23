@@ -55,16 +55,28 @@ export default class Goods extends BaseEntity {
   @BeforeUpdate()
   createDetails() {
     console.log('createDetails');
-    this.details = `${this.goodsName}\n\n颜色：${this.color}\n\n尺码：\n${this.size}\n\n`;
+    this.details = `${this.goodsName}\n\n`;
+
+    this.size.includes('\n')
+      ? (this.details += `尺码：\n`)
+      : (this.details += `尺码：`);
+    this.details += `${this.size}\n\n`;
 
     if (this.fabric != null && this.fabric != '') {
       this.details += `面料：${this.fabric}\n\n`;
     }
 
-    if (this.other != null && this.other != '') {
-      this.details += `${this.other}\n\n`;
-    }
+    this.details += `颜色：${this.color}\n\n`;
 
-    this.details += `洗涤建议：${this.wash}\n\n纯尾货，性价比高，良心推荐\n\n\n默认所有商品都有微小残次，无窟窿无洞等大问题\n但可能存在浮土、小脏、轻微染色、走线不齐等毛病\n大瑕疵商品介绍会特别写明并做特价处理\n\n声明：\n本店所售商品均不附带任何品牌价值\n根据规定，均已做剪标、拆标处理，望知晓`;
+    if (this.other != null && this.other != '') {
+      this.details += `${this.other}\n`;
+    }
+    this.details += `纯尾货，性价比高，良心推荐～\n\n`;
+
+    this.details += `洗涤建议：${this.wash}\n\n\n`;
+
+    this.details += `声明：所售商品均不附带任何品牌价值，根据规定，均已做剪标、拆标处理，望知晓\n\n`;
+
+    this.details += `默认所有商品都有微小残次，无窟窿无洞等大问题\n但可能存在浮土、小脏、轻微染色、走线不齐等毛病\n大瑕疵商品介绍会特别写明并做特价处理`;
   }
 }
