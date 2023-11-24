@@ -30,7 +30,7 @@ export class GoodsService {
         goodsName: Like(`%${goodsName}%`),
       },
       order: {
-        id: 'ASC',
+        updatedAt: 'DESC',
       },
       take: limit,
       skip: (page - 1) * limit,

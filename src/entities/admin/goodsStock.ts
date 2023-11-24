@@ -19,7 +19,9 @@ export default class GoodsStock extends BaseEntity {
   @ApiProperty()
   stock: string;
 
-  @OneToOne((type) => Goods, (goods) => goods.goodsStock)
+  @OneToOne((type) => Goods, (goods) => goods.goodsStock, {
+    onDelete: 'CASCADE',
+  })
   @JoinColumn()
   goods: Goods;
 }

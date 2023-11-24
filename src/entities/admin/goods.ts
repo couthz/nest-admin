@@ -48,7 +48,9 @@ export default class Goods extends BaseEntity {
   @ApiProperty()
   details: string;
 
-  @OneToOne((type) => GoodsStock, (goodsStock) => goodsStock.goods)
+  @OneToOne((type) => GoodsStock, (goodsStock) => goodsStock.goods, {
+    cascade: true,
+  })
   goodsStock: GoodsStock;
 
   @BeforeInsert()
